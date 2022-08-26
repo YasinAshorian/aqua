@@ -1,12 +1,15 @@
 {
-    "name": "aqua/famework",
+    "name": "aqua/framework",
     "description": "A simple PHP framework for building web application",
+    "keywords": ["framework", "aqua", "php"],
     "type": "library",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Aqua\\Famework\\": "src/"
-        }
+    "readme": "",
+    "time": "",
+    "suggest": {
+        "issues": "https://github.com/YasinAshorian/aqua/issues",
+        "source": "https://github.com/YasinAshorian/aqua",
+        "wiki": "https://github.com/YasinAshorian/aqua/wiki"
     },
     "authors": [
         {
@@ -15,5 +18,23 @@
         }
     ],
     "minimum-stability": "alpha",
-    "require": {}
+    "require": {
+        "php": "7.4.2|^8.0",
+        "ext-mbstring": "*",
+        "ext-iconv": "*",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-simplexml": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aqua\\": "src/Aqua"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aqua\\Tests": "tests/"
+        }
+    }
 }
