@@ -9,13 +9,16 @@ use PDOException;
 class DatabaseConnectionException extends \PDOException
 {
 
-    protected $massage;
-
-    protected $code;
-
+  /**
+   * Main constructor class witch overrides the parent constructor and set massage and the code
+   * properties witch is optional
+   * @param  string $message
+   * @param  int $code
+   * @return void
+   */
     public function __construct($message = null, $code = null)
     {
-        $this->massage = $message;
+        $this->message = $message;
         $this->code = $code;
     }
 }
