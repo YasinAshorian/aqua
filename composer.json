@@ -1,0 +1,19 @@
+{
+    "name": "aqua/famework",
+    "description": "A simple PHP framework for building web application",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Aqua\\Famework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "YasinAshorian",
+            "email": "yasinashourian@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}
