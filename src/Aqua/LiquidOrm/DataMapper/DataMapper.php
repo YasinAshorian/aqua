@@ -5,21 +5,15 @@ declare(strict_types=1);
 namespace Aqua\LiquidOrm\DataMapper;
 
 use Aqua\DatabaseConnection\DatabaseConnectionInterface;
-use DateInterval;
 use DateTimeInterface;
-use DateTimeZone;
 
 class DataMapper implements DataMapperInterface
 {
-    /**
-     * @var DatabaseConnectionInterface $dbh ;
-     */
+    /** @var DatabaseConnectionInterface $dbh */
     private DatabaseConnectionInterface $dbh;
 
-    /**
-     * @var \PDOStatement $stmt ;
-     */
-    private \PDOStatement $stmt;
+    /** @var \PDOStatement $statement */
+    private \PDOStatement $statement;
 
     /**
      * Main Constructor class
@@ -29,6 +23,14 @@ class DataMapper implements DataMapperInterface
         $this->dbh = $dbh;
     }
 
+    /**
+     * Check the incoming $valis isn't empty else throw an exception
+     *
+     * @param mixed $value
+     * @param string|null $errorMessage
+     * @return void
+     * @throws DadaMapperException
+     */
     private function isEmpty($value, string $errorMessage = null)
     {
         if (empty($value)) {
@@ -36,6 +38,13 @@ class DataMapper implements DataMapperInterface
         }
     }
 
+    /**
+     * Check the incoming argument $value is an array else throw an exception
+     *
+     * @param array $value
+     * @return void
+     * @throws DadaMapperException
+     */
     private function isArray(array $value)
     {
         if (!is_array($value)) {
@@ -43,12 +52,21 @@ class DataMapper implements DataMapperInterface
         }
     }
 
+    /**
+     * @inheritDoc
+     */
     public function prepare(string $sqlQuery): DataMapperInterface
     {
         $this->statement = $this->dbh->open()->prepare($sqlQuery);
         return $this;
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @param [type] $value
+     * @return void
+     */
     public function bind($value)
     {
         try {
@@ -70,8 +88,14 @@ class DataMapper implements DataMapperInterface
         }
     }
 
-
-    public function bindParameters(array $fields, bool $isSearch = false)
+    /**
+     * @inheritDoc
+     *
+     * @param array $fields
+     * @param boolean $isSearch
+     * @return self
+     */
+    public function bindParameters(array $fields, bool $isSearch = false): self
     {
         if (is_array($fields)) {
 
@@ -83,7 +107,15 @@ class DataMapper implements DataMapperInterface
         return false;
     }
 
-    protected function bindValues(array $fields)
+    /**
+     * Binds a value to a corresponding name or question mark placeholder in the SQL
+     * statement that was used to prepare the statement
+     *
+     * @param array $fields
+     * @return \PDOStatement
+     * @throws DadaMapperException
+     */
+    protected function bindValues(array $fields): \PDOStatement
     {
         $this->isArray($fields);
         foreach ($fields as $key => $value) {
@@ -92,7 +124,16 @@ class DataMapper implements DataMapperInterface
         return $this->statement;
     }
 
-    protected function bindSearchValues(array $fields)
+    /**
+     * Binds a value to a corresponding name or question mark placeholder
+     * in the SQL statement that was used to prepare the statement. Similar to
+     * above but optimised for search queries
+     *
+     * @param array $fields
+     * @return mixed
+     * @throws DadaMapperException
+     */
+    protected function bindSearchValues(array $fields): \PDOStatement
     {
         $this->isArray($fields);
         foreach ($fields as $key => $value) {
@@ -101,31 +142,55 @@ class DataMapper implements DataMapperInterface
         return $this->statement;
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @return integer
+     */
     public function numRows(): int
     {
         if ($this->statement)
             return $this->statement->rowCount();
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @return void
+     */
     public function execute(): void
     {
         if ($this->statement)
             return $this->statement->execute();
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @return object
+     */
     public function result(): object
     {
         if ($this->statement)
             return $this->statement->fetch(\PDO::\FETCH_OBJ);
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @return array
+     */
     public function results(): array
     {
         if ($this->statement)
             return $this->statement->fetchAll();
     }
 
-
+    /**
+     * @inheritDoc
+     *
+     * @return integer
+     */
     public function getLastId(): int
     {
         try {
