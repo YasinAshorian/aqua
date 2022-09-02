@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace Aqua\Base\Exception;
 
-class BaseLogicException extends \LogicException
+class BaseNotValueException extends BaseLogicException
 {
+
     /**
-     * Exception that represents in the params logic. This kind of exception should lead directly to a fix in your code .
+     * Custom framework exception which is thrown calling an empty argument.
      *
      * @param string $message
      * @param integer $code
