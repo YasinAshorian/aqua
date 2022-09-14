@@ -1,8 +1,5 @@
 <?php
-
-declare(strict_types=1);
-
-namespace Magma\Router;
+namespace YAshourian\Aqua\Router;
 
 use Magma\Base\Exception\BaseNoValueException;
 use Magma\Base\Exception\BaseUnexpectedValueException;

@@ -1,8 +1,5 @@
 <?php
-
-declare(strict_types=1);
-
-namespace Aqua\DatabaseConnection\Exception;
+namespace YAshourian\Aqua\DatabaseConnection\Exception;
 
 use PDOException;
 

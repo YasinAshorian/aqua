@@ -1,37 +1,6 @@
 <?php
-    public function diff(DateTimeInterface $targetObject, $absolute = false)
-    {
-        // TODO: Implement diff() method.
-    }
 
-    public function format($format)
-    {
-        // TODO: Implement format() method.
-    }
-
-    public function getOffset()
-    {
-        // TODO: Implement getOffset() method.
-    }
-
-    public function getTimestamp()
-    {
-        // TODO: Implement getTimestamp() method.
-    }
-
-    public function getTimezone()
-    {
-        // TODO: Implement getTimezone() method.
-    }
-
-    public function __wakeup()
-    {
-        // TODO: Implement __wakeup() method.
-    }
-
-declare(strict_types=1);
-
-namespace Aqua\DatabaseConnection;
+namespace YAshourian\Aqua\DatabaseConnection;
 
 use PDO as PDOAlias;
 

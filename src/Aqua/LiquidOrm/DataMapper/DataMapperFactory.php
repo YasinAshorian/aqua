@@ -1,8 +1,5 @@
 <?php
-
-declare(strict_types=1);
-
-namespace Magma\LiquidOrm\DataMapper;
+namespace YAshourian\Aqua\LiquidOrm\DataMapper;
 
 use Magma\Base\Exception\BaseUnexpectedValueException;
 use Magma\DatabaseConnection\DatabaseConnectionInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aqua\LiquidOrm\DataMapper;
+namespace YAshourian\Aqua\LiquidOrm\DataMapper;
 
 use Exception;
 

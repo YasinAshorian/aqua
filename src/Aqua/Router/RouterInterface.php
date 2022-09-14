@@ -1,7 +1,5 @@
 <?php
-declare(strict_types=1);
-
-namespace Aqua\Router;
+namespace YAshourian\Aqua\Router;
 
 interface RouterInterface
 {

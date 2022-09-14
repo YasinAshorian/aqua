@@ -1,40 +1,19 @@
 {
-    "name": "aqua/framework",
-    "description": "A simple PHP framework for building web application",
-    "keywords": ["framework", "aqua", "php"],
-    "type": "library",
+    "name": "y.ashourian/aqua",
     "license": "MIT",
-    "readme": "",
-    "time": "",
-    "suggest": {
-        "issues": "https://github.com/YasinAshorian/aqua/issues",
-        "source": "https://github.com/YasinAshorian/aqua",
-        "wiki": "https://github.com/YasinAshorian/aqua/wiki"
-    },
     "authors": [
         {
-            "name": "YasinAshorian",
+            "name": "yasinashourian",
             "email": "yasinashourian@gmail.com"
         }
     ],
-    "minimum-stability": "alpha",
-    "require": {
-        "php": "7.4.2|^8.0",
-        "ext-mbstring": "*",
-        "ext-iconv": "*",
-        "ext-pdo": "*",
-        "ext-json": "*",
-        "ext-curl": "*",
-        "ext-simplexml": "*"
-    },
+    "require": {},
     "autoload": {
-        "psr-4": {
-            "Aqua\\": "src/Aqua"
+    "psr-4": {
+        "YAshourian\\Aqua\\": "src/Aqua"
         }
     },
     "autoload-dev": {
-        "psr-4": {
-            "Aqua\\Tests": "tests/"
-        }
+        "YAshourian\\Test\\" : "tests/"
     }
 }

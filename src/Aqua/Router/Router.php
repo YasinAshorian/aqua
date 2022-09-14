@@ -1,10 +1,7 @@
 <?php
+namespace YAshourian\Aqua\Router;
 
-declare(strict_types=1);
-
-namespace Aqua\Router;
-
-use Aqua\Router\RouterInterface;
+use YAshourian\Aqua\Router\RouterInterface;
 
 class Router implements RouterInterface
 {

@@ -1,10 +1,7 @@
 <?php
+namespace YAshourian\Aqua\LiquidOrm\DataMapper;
 
-declare(strict_types=1);
-
-namespace Aqua\LiquidOrm\DataMapper;
-
-use Aqua\DatabaseConnection\DatabaseConnectionInterface;
+use YAshourian\Aqua\DatabaseConnection\DatabaseConnectionInterface;
 use DateTimeInterface;
 
 class DataMapper implements DataMapperInterface
@@ -158,7 +155,7 @@ class DataMapper implements DataMapperInterface
      *
      * @return void
      */
-    public function execute(): void
+    public function execute()
     {
         if ($this->statement)
             return $this->statement->execute();
@@ -171,8 +168,8 @@ class DataMapper implements DataMapperInterface
      */
     public function result(): object
     {
-        if ($this->statement)
-            return $this->statement->fetch(\PDO::\FETCH_OBJ);
+//        if ($this->statement)
+//            return $this->statement->fetch(\PDO::\FETCH_OBJ);
     }
 
     /**
@@ -182,8 +179,8 @@ class DataMapper implements DataMapperInterface
      */
     public function results(): array
     {
-        if ($this->statement)
-            return $this->statement->fetchAll();
+//        if ($this->statement)
+//            return $this->statement->fetchAll();
     }
 
     /**

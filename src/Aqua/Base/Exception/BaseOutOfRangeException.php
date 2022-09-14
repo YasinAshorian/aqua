@@ -1,7 +1,5 @@
 <?php
-declare(strict_types=1);
-
-namespace Aqua\Base\Exception;
+namespace YAshourian\Aqua\Base\Exception;
 
 class BaseOutOfRangeException extends \OutOfRangeException
 {
